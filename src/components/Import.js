@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Table,
@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { MoreVert } from "@material-ui/icons";
-import DeleteIcon from '@material-ui/icons/Delete'
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const Import = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -24,13 +24,13 @@ const Import = (props) => {
   }));
   const classes = useStyles();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  const [makeId, setMakeId] = React.useState(null);
+  const [idNum, setMakeId] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    setMakeId(event.currentTarget.id)
+    setMakeId(event.currentTarget.id);
   };
 
   const handleClose = () => {
@@ -39,7 +39,7 @@ const Import = (props) => {
 
   return (
     <Container maxWidth="lg">
-        <h2>What up! Let's add some more cars to our Fake car lot!</h2>
+      <h2>What up! Let's add some more cars to our Fake car lot!</h2>
       <div className={classes.root}>
         <Button onClick={props.fetchMakes} variant="contained" color="primary">
           Import
@@ -55,7 +55,7 @@ const Import = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.makes.map((car, idx) => (
+          {props.makes.map((car, id) => (
             <TableRow key={car.id}>
               <TableCell>{car["MakeId"]}</TableCell>
               <TableCell>{car["MakeName"]}</TableCell>
@@ -63,6 +63,7 @@ const Import = (props) => {
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
+                id={id}
               >
                 Open Menu
               </MoreVert>
@@ -78,7 +79,7 @@ const Import = (props) => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Button onClick={() => props.deleteMake(makeId)}>
+          <Button onClick={() => props.deleteMakes(idNum)}>
             <DeleteIcon />
             Delete
           </Button>

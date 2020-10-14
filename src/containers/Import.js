@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Import from "../components/Import";
-import { fetchMakes, deleteMake } from "../redux/actions"
+import { fetchMakes, deleteMakes } from "../redux/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 const mapsDispatchToProps = (dispatch) => {
   return {
     fetchMakes: () => dispatch(fetchMakes()),
-    deleteMake: (MakeId) => dispatch(deleteMake(MakeId))
+    deleteMakes: (index) => dispatch(deleteMakes(index)),
   };
 };
 
