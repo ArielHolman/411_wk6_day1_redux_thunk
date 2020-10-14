@@ -20,7 +20,7 @@ Today we are going to create a mock-import utility that we can use in our cars a
 
 * Now that we have Redux configured for this action it's time to build out the component. Notice that there is an `Import.js` file underneath the "components" and "containers" folders. In fact, it's also already been tied into the router for you so if you navigate to "/import" you should see a line of text.
 
-* On this page you need to use `material-ui` to create a button and a table. Let's do that part first. Import Button, Table, TableHead, TableBody, TableRow and TableCell from "material-ui/core". You may also want to import "Container" to help with styling. Remember to look at the Material UI docs if you don't understand how this works. 
+* On this page you need to use `material-ui` to create a button and a table. Let's do that part first. Import Button, Table, TableHead, TableBody, TableRow and TableCell from "material-ui/core". You may also want to import "Container" to help with styling. Remember to look at the Material UI docs if you don't understand how this works.
 
 * Create a button with the text "Import". Make it's variant contained and it's color primary. Then create a table underneath it. The table should have three columns (Id, Make, Actions).
 
@@ -36,13 +36,13 @@ Today we are going to create a mock-import utility that we can use in our cars a
 
 * It's time for the moment of truth. Click the button. It should take a second and then populate your table with a list of "makes". If it didn't, check with someone near your or ask the instructor during class. Before you do that though, spend a few minutes debugging to see if you can find out where the issue is.
 
-* If the table is being populate it's time for us to move onto the next step which is adding our actions. We are going to have a dropdown menu on under the actions column that allows us to "delete" that particular row. We are going to refence [menus](https://material-ui.com/components/menus/) from Material UI to do this. 
+* If the table is being populate it's time for us to move onto the next step which is adding our actions. We are going to have a dropdown menu on under the actions column that allows us to "delete" that particular row. We are going to refence [menus](https://material-ui.com/components/menus/) from Material UI to do this.
 
 * First `import { MoreVert } from '@material-ui/icons'` for the button and place the <MoreVert> component under the actions column. In the table. We are going to expand our menu using it's onClick method. Reference the code from the link above to figure out how to open/close the menu. Hint: Put the code for `<Menu>` outside of the table.
 
 * Now that the menu is working we need to create the action to delete a certain row. Make a new action called `deleteMake`. It will take accept one argument that represents the index we want to delete. We've deleted rows from tables before so look back at previous homework assignments to write an appropriate action and reducer that handles this use case. Remember to also add your new action to the `mapDispatchToProps` function in your container.
 
-* You will probably need to use local state to pass the index you want to delete to your menu. This is another challenge we'd like to you try out on your own before asking for help. 
+* You will probably need to use local state to pass the index you want to delete to your menu. This is another challenge we'd like to you try out on your own before asking for help.
 
 * Once all the above is done, create a simple `<h2>` that displays `COUNT: <NUM>` where NUM is `props.makes.length`. We want to always know how many rows we have.
 
